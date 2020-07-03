@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+  font-size: 17px;
+  padding: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<h2>Billing and delivery/shipping Form</h2>
+<p>Billing and delivery will be sent to exact same location!</p>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/action_page.php">
+      
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="john@example.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city" placeholder="Cape Town">
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="CPT">
+                </div>
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" name="zip" placeholder="8001">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="expmonth">Exp Month</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="September">
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Exp Year</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2018">
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352">
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+          <input type="checkbox" checked="checked" name="sameadre"> Select if you want additional courier service
+        </label>
+        <input type="submit" value="Done" class="btn" >
+      </form>
+    </div>
+  </div>
+  
+</div>
+
+<br>
+<hr>
+<br>
+
+<h3>Total:- <span id="amtOut">...</span> </h3>
+  <h3>After 15% Discount:- <span id="disOut">...</span> </h3>
+  <p>Discount code is 'code'</p>
+  <form>
+    <input type="text" id="amtIn" placeholder="Enter Total Amount" onChange="updateTotal()">
+    <input type="text" id="code" placeholder="Enter Discount Code">
+    <input type="button" value="APPLY DISCOUNT" onClick="applyDiscount(document.getElementById('amtIn').value)">
+
+  </form>
+
+<h1>Order Form</h1>
+
+<!-- First Name/ -->
+<p><input id="first_name" name="first_name" type="text" size="25" maxlength="25" onblur="validateFirstName();"/> - First Name</p> <!-- 2-15 characters, spaces allowed -->
+<div id="first"></div>
+
+<!--Last Name -->
+<p><input id="last_name" name="last_name" type="text" size="25" maxlength="25" onblur="validateLastName();"/> - Last Name</p> <!-- 2-25 characters, spaced allowed -->
+<div id="last"></div>
+
+<!--Phone Number -->
+<p><input id="phone_number" name="phone_number" type="text" size="25" maxlength="25" onblur="validatePhoneNumber();"/> - Phone Number</p> <!-- Format: (xxx) xxx-xxxx -->
+<div id="phone"></div>
+
+<!--Quantity -->
+<p><input id="quantity_order" name="quantity_order" type="text" size="25" maxlength="25" onblur="validateQuantity();"/> - Quantity (1-99)</p> <!-- Validate input is 1-99 -->
+<div id="quant"></div>
+
+<!--Price -->
+<p><input id="price_fixed" name="price_fixed" type="text" size="25" maxlength="25" readonly="readonly" value="4.95"> - Price </p> 
+
+<!--Tax -->
+<p><input id="tax_fixed" name="tax_fixed" type="text" size="25" maxlength="25" readonly="readonly" value="8.50%"/> - Tax </p>
+
+<!--Total -->
+<p><input id="order_total" name="order_total" type="text" size="25" maxlength="25" readonly="readonly"/> - Total</p>
+
+<!--Submit Button -->
+<p id="submitButton" onclick="priceCalculation();">Submit</p>
+
+</body>
+
+
+<script>
+
+
+// Validate First Name //
+
+function validateFirstName() {
+
+var first = document.getElementById("first_name").value;
+var regex = /^(\w{2,15}$)/;
+
+  if (regex.test(first)) {
+    document.getElementById("first").innerHTML = "<p>" + "" + "</p>";
+    return(true);
+  } // end if statement
+  
+  else {
+    document.getElementById("first").innerHTML += "<p>" + "Please enter a valid name up to 15 characters" + "</p>";
+    return(false);
+  } // end else statement
+
+} // end validate firstname
+
+// Validate Last Name //
+
+function validateLastName() {
+
+var last = document.getElementById("last_name").value;
+var regex= /^(\w{2,25}$)/;
+
+  if (regex.test(last)) {
+    document.getElementById("last").innerHTML = "<p>" + "" + "</p>";
+    return(true);
+  } // end if statement
+
+  else {
+    document.getElementById("last").innerHTML += "<p>" + "Please enter a valid last name up to 25 characters" + "</p>";
+    return(false);
+  } //end else statement
+  
+} // end function validateLastName();
+
+// Validate Phone Number //
+
+function validatePhoneNumber() {
+
+var phoneNum = document.getElementById("phone_number").value;
+var regex = /^\d{3}-\d{3}-\d{4}$/;
+
+  if (regex.test(phoneNum)) {
+      document.getElementById("phone").innerHTML = "<p>" + "" + "</p>";
+
+    return(true);
+  } // end if statement
+
+  else {
+  document.getElementById("phone").innerHTML = "<p>" + "Please enter a valid phone number in the format xxx-xxx-xxxx" + "</p>";
+  return(false);
+  } // end else statement
+} // end function validatePhoneNumber();
+
+// VALIDATE QUANTITY
+
+function validateQuantity() {
+
+var quantity = document.getElementById("quantity_order").value;
+var regex = /^\b([1-9][0-9]?)\b$/ ;
+
+  if (regex.test(quantity)) {
+    document.getElementById("quant").innerHTML = "<p>" + "" + "</p>";
+    return(true);
+  } // end if statement
+
+  else {
+  document.getElementById("quant").innerHTML = "<p>" + "Please enter a quantity between 1 & 99" + "</p>";
+  return(false);
+  } // end else statement
+} // end function validatePhoneNumber();
+
+// CALCULATIONS //
+
+function priceCalculation() {
+
+var nameFirst = document.getElementById("first_name").value;
+var nameLast = document.getElementById("last_name").value;
+var phoneNum = document.getElementById("phone_number").value;
+var quantity = document.getElementById("quantity_order").value;
+var price = document.getElementById("price_fixed").value;
+var total = quantity * price;
+var discountPrice = 0
+var discountedTotal = total - (total * discountPrice);
+const taxRate = 0.085;
+var tax = total * taxRate;
+var totalPlusTax = total + tax;
+
+   if (quantity > 9 || quantity < 20) {
+    discountPrice = .10;    
+      total = discountedTotal;
+    }     
+  else if (quantity > 19 || quantity < 30) {
+    discountPrice = .20;
+    total = discountedTotal;
+  }
+  else if (quantity > 29 || quantity < 40) {
+    discountPrice = .30;
+    total = discountedTotal;  
+  }
+  else if (quantity > 39 || quantity < 100) {
+    discountPrice = .40;
+    total = discountedTotal;  
+  }
+  
+document.getElementById("order_total").value = "$" + totalPlusTax.toFixed(2);
+
+} // end function priceCalculation();
+  
+  function updateTotal(){
+    document.getElementById("amtOut").innerHTML=document.getElementById("amtIn").value;
+  }
+  function applyDiscount(amount){
+    if(document.getElementById("code").value.toUpperCase() =="CODE")
+    {
+    amount=parseFloat(amount);
+        var discount=15;
+        var disAmt=0.85*amount;
+        document.getElementById("disOut").innerHTML=disAmt;
+    }else{
+      document.getElementById("disOut").innerHTML="Sorry No Discount Available Today";
+    }
+  }
+</script>
+
+</html>

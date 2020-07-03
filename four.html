@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>The Generics/Promotions</title>
+        <meta name="description" content="This is the description">
+        <link rel="stylesheet" href="stole.css" />
+        <script src="three.js" async></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    </head>
+    <body>
+        <header class="main-header">
+            <nav class="main-nav nav">
+                <ul>
+                    <li><a href="one.html">ABOUT</a></li>
+                    <li><a href="two.html">HOME</a></li>
+                    <li><a href="three.html">STORE</a></li>
+                    <li><a href="four.html">CART</a></li>
+                    <li><a href="shipping.html">Shipping</a></li>
+                </ul>
+            </nav>
+            <h1 class="band-name band-name-large">The Generics</h1>
+        </header>
+
+        
+
+        <h1>Promotions</h1>
+        <p>enter codes here</p>
+        <input type="text" name="text1">
+        <input type="button" value="Validate Coupon" name="Submit" onclick="validate(document.getElementsByName('text1')[0].value)">
+        
+
+
+
+
+
+
+<section class="container content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <img class="cart-item-image" src="italian-italy-t-shirts-3476.jpg" width="100" height="100">
+                        <span class="cart-item-title">T-Shirt</span>
+                    </div>
+                    <span class="cart-price cart-column">$19.99</span>
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="1">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>
+                <div class="cart-row">
+                    <div class="cart-item cart-column">
+                        <img class="cart-item-image" src="white-coffee-mug-on-brown-surface-1207918.jpg" width="100" height="100">
+                        <span class="cart-item-title">Album 3</span>
+                    </div>
+                    <span class="cart-price cart-column">$9.99</span>
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="2">
+                        <button class="btn btn-danger" type="button">REMOVE</button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$39.97</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </section>
+
+
+
+    <div id="container">
+    <button id="btnFadeOut">Fade Out</button>
+    <button id="btnFadeIn">Fade In</button>
+    <button id="moveLeft">Move Left</button>
+    <button id="moveRight">Move Right</button>
+    <button id="btn2">Hide and Show</button>
+    
+    
+    <div id="box"><h3>THANK YOU FOR YOUR PURCHASE!</h3></div>
+
+    <hr>
+
+    <button id="moveAround">Move Around</button>
+    <div id="box2"><h3>Music makes my head jump around</h3></div>
+
+    <hr>
+
+    <h2>Accordion</h2>
+         
+         <button class="accordion">Safwaan</button>
+         <div class="panel">
+         <p>We are family brought together by our love of music. I am Safwaan, the lead drummer and co-founder.</p>
+         </div>
+
+         <button class="accordion">Reedah</button>
+         <div class="panel">
+         <p>I am Reedah, youngest of the three brothers and the lead guitarist.</p>
+         </div>
+
+         <button class="accordion">Shawhal</button>
+         <div class="panel">
+         <p>I am Shawhal, the oldest of all the brothers. I am lead vocalist and co-founder.</p>
+         </div>
+
+    
+
+
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="band-name">The Generics</h3>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://www.youtube.com" target="_blank">
+                            <img src="apps-blur-button-close-up-267350.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.spotify.com" target="_blank">
+                            <img src="apps-cellphone-communication-computer-340103.jpg">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com" target="_blank">
+                            <img src="access-app-application-apps-267399.jpg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </footer>
+
+        <script>
+
+$(document).ready(function() {
+    alert("PURCHASE");
+
+    //Below is code which hides each list item when clicked on
+    $('li').click(function() {
+        $(this).hide();
+    });
+
+    //Below is code which causes the elf character to move!
+    $(document).keydown(function(key) {
+        switch (parseInt(key.which, 10)) {
+            // Left arrow key pressed
+            case 37:
+                $('img').animate({ left: "-=20px" }, 'fast');
+                break;
+                // Up Arrow Pressed
+            case 38:
+                $('img').animate({ top: '-=20px' }, 'fast');
+                break;
+                // Right Arrow Pressed
+            case 39:
+                $('img').animate({ left: '+=20px' }, 'fast');
+                break;
+                // Down Arrow Pressed
+            case 40:
+                $('img').animate({ top: '+=20px' }, 'fast');
+                break;
+        }
+    });
+});
+
+
+$(document).ready(function(){
+
+          $('#btnFadeOut').click(function(){ 
+             $('#box').fadeOut(3000);
+         });
+        });
+
+        $(document).ready(function(){
+
+          $('#btnFadeIn').click(function(){ 
+             $('#box').fadeIn(3000);
+         });
+        });
+
+        $(document).ready(function(){
+
+          $('#btnFadeTog').click(function(){ 
+             $('#box').fadeToggle(1000);
+         });
+        });  
+
+        $(document).ready(function(){
+
+          $('#moveRight').click(function(){ 
+             $('#box').animate({
+                left: 500,
+                height: '300px',
+                width: '300px',
+                opacity: '0.5'
+             });
+         });
+        });
+
+        $(document).ready(function(){
+
+          $('#moveLeft').click(function(){ 
+             $('#box').animate({
+                left: 0,
+                height: '100px',
+                width: '100px',
+                opacity: '1'
+             });
+         });
+        });
+        //Below combines mouse leave and mouse enter.
+        $(document).ready(function(){
+
+          $('#btn2').dblclick(function(){ 
+             $('#box').toggle();
+         });
+        });
+
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+         acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+         if (panel.style.display === "block") {
+          panel.style.display = "none";
+         } else {
+        panel.style.display = "block";
+    }
+  });
+}
+
+        function validate(coupon) {
+        codes = new Object();
+        codes.GOLD20 = 20;
+        codes.GOLD = 30;
+        codes.GOLD40 = 40;
+        codes.GOLD50 = 50;
+        console.log(coupon)
+        if (codes[coupon]) {
+         window.alert("Coupon Code Accepted! Click the Order button!");
+        } else {
+         window.alert("Sorry, The Coupon Code you entered is invalid. Please check and try again!");
+        }
+        }
+
+        
+
+          
+
+        $(document).ready(function(){
+
+          $('#moveAround').click(function(){ 
+             var box = $('#box2');
+             box.animate({
+                left: 300
+             });
+             box.animate({
+                top: 300
+             });
+             box.animate({
+                left: 0,
+                top: 300
+             });
+             box.animate({
+                left: 0,
+                top: 0
+             });
+         });
+        });
+
+
+
+       
+         
+        
+
+        </script>
+    </body>
+</html>
