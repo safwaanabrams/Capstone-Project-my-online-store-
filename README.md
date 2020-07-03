@@ -42,7 +42,7 @@ as the repo.
 ## Who can use this code, including screenshots of project in action?
 This code is easy enough for beginners to advanced users of git and github. The code is written in Sublime text editor.
 
-<img src="C:\Users\safwaan.abrams\Desktop\New folder"
+![Doc1.docx](https://github.com/safwaanabrams/Capstone-Project-my-online-store-/files/4869932/Doc1.docx)
 
 ## Credits:
 * Safwaan Abrams
